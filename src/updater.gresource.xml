@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/fr/oiimrosabel/Renouveau">
+    <file preprocess="xml-stripblanks">main.ui</file>
+    <file preprocess="xml-stripblanks">shortcuts-dialog.ui</file>
+    <file preprocess="xml-stripblanks" alias="start.ui">pages/start.ui</file>
+    <file preprocess="xml-stripblanks" alias="update.ui">pages/update.ui</file>
+    <file preprocess="xml-stripblanks" alias="finish.ui">pages/finish.ui</file>  
+    <file preprocess="xml-stripblanks" alias="flatpak.ui">components/flatpak.ui</file>
+    <file preprocess="xml-stripblanks" alias="outlooker.ui">components/outlooker.ui</file>
+    <file preprocess="xml-stripblanks" alias="settings.ui">components/settings.ui</file>
+    <file preprocess="xml-stripblanks" alias="snap.ui">components/snap.ui</file>
+    <file preprocess="xml-stripblanks" alias="system.ui">components/system.ui</file>
+    <file preprocess="xml-stripblanks" alias="terminal.ui">components/terminal.ui</file>
+    <file preprocess="xml-stripblanks" alias="updextrow.ui">components/updextrow.ui</file>
+    <file preprocess="xml-stripblanks" alias="updrow.ui">components/updrow.ui</file>
+    <file alias="style.css">../data/style.css</file>
+  </gresource>
+  <gresource prefix="/fr/oiimrosabel/Renouveau/icons/scalable/actions">
+    <file preprocess="xml-stripblanks" alias="main-icon.svg">../data/images/main-icon.svg</file>
+        <file preprocess="xml-stripblanks" alias="update-icon.svg">../data/images/update-icon.svg</file>
+  </gresource>
+  <gresource prefix="/fr/oiimrosabel/Renouveau/icons/scalable/actions">
+    <file preprocess="xml-stripblanks" alias="cancel-operation-symbolic.svg">../data/icons/hicolor/symbolic/actions/cancel-operation-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="check-plain-symbolic.svg">../data/icons/hicolor/symbolic/actions/check-plain-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="dialog-password-symbolic.svg">../data/icons/hicolor/symbolic/actions/dialog-password-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="flatpak-symbolic.svg">../data/icons/hicolor/symbolic/actions/flatpak-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="gnome-logs-symbolic.svg">../data/icons/hicolor/symbolic/actions/gnome-logs-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="gnome-power-manager-symbolic.svg">../data/icons/hicolor/symbolic/actions/gnome-power-manager-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="info-outline-symbolic.svg">../data/icons/hicolor/symbolic/actions/info-outline-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="org.gnome.Terminal-symbolic.svg">../data/icons/hicolor/symbolic/actions/org.gnome.Terminal-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="package-x-generic-symbolic.svg">../data/icons/hicolor/symbolic/actions/package-x-generic-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="process-stop-symbolic.svg">../data/icons/hicolor/symbolic/actions/process-stop-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="snap-symbolic.svg">../data/icons/hicolor/symbolic/actions/snap-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="software-update-available-symbolic.svg">../data/icons/hicolor/symbolic/actions/software-update-available-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="system-reboot-symbolic.svg">../data/icons/hicolor/symbolic/actions/system-reboot-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="update-manager-symbolic.svg">../data/icons/hicolor/symbolic/actions/update-manager-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="software-updates-symbolic.svg">../data/icons/hicolor/symbolic/actions/software-updates-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="user-trash-symbolic.svg">../data/icons/hicolor/symbolic/actions/user-trash-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="view-refresh-symbolic.svg">../data/icons/hicolor/symbolic/actions/view-refresh-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="warning-outline-symbolic.svg">../data/icons/hicolor/symbolic/actions/warning-outline-symbolic.svg</file>
+  </gresource>
+</gresources>
+

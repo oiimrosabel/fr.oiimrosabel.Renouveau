@@ -1,0 +1,72 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $SystemComponent: Adw.ExpanderRow {
+  title: bind template.systemTitle;
+  subtitle: bind template.systemSubtitle;
+  sensitive: bind template.systemPresent;
+  show-enable-switch: true;
+  enable-expansion: bind template.systemEnabled bidirectional;
+
+  [prefix]
+  Image {
+    name: "package";
+    icon-name: "package-x-generic-symbolic";
+  }
+
+  Adw.SwitchRow refreshRow {
+    title: _("Refresh the package list");
+    active: bind template.refreshPackages bidirectional;
+
+    [prefix]
+    Image {
+      name: "refresh";
+      icon-name: "view-refresh-symbolic";
+    }
+  }
+
+  Adw.SwitchRow updateRow {
+    title: _("Update system packages");
+    active: bind template.updatePackages bidirectional;
+
+    [prefix]
+    Image {
+      name: "update";
+      icon-name: "software-updates-symbolic";
+    }
+  }
+
+  Adw.ComboRow commandRow {
+    title: _("Upgrade command");
+    sensitive: bind template.updatePackages;
+    expression: expr $commandTypeLabel() as <string>;
+    notify::selected => $onCommandChange();
+
+    model: FilterListModel {
+      filter: BoolFilter commandFilter {
+        expression: expr $isCommandAvailable() as <bool>;
+      };
+      
+      model: Adw.EnumListModel {
+        enum-type: typeof<$UpdateCommandType>;
+      };
+    };
+
+    [prefix]
+    Image {
+      name: "command";
+      icon-name: "org.gnome.Terminal-symbolic";
+    }
+  }
+
+  Adw.SwitchRow unusedRow {
+    title: _("Delete unused system packages");
+    active: bind template.deleteUnused bidirectional;
+
+    [prefix]
+    Image {
+      name: "delete";
+      icon-name: "user-trash-symbolic";
+    }
+  }
+}

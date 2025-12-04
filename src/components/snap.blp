@@ -1,0 +1,28 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $SnapComponent: Adw.ExpanderRow {
+  title: _("Snap");
+  show-enable-switch: true;
+  enable-expansion: bind template.snapEnabled bidirectional;
+  subtitle: bind template.snapSubtitle;
+  sensitive: bind template.snapPresent;
+
+  [prefix]
+  Image {
+    name: "snap";
+    icon-name: "snap-symbolic";
+  }
+
+  Adw.SwitchRow {
+    title: _("Force update Snap packages");
+    active: bind template.forceUpdate bidirectional;
+    subtitle: bind template.updateSubtitle;
+
+    [prefix]
+    Image {
+      name: "update";
+      icon-name: "software-updates-symbolic";
+    }
+  }
+}

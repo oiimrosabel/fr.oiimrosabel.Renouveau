@@ -1,0 +1,19 @@
+.failed-sub, .failed > box > list > row {
+  background-color: #ff000020;
+}
+
+.with-bg.image-text-button {
+  background-color: #80808020;
+}
+
+.with-bg.image-text-button:hover {
+  background-color: #80808040;
+}
+
+.with-bg.image-text-button:active {
+  background-color: #80808010;
+}
+
+.terminal-output {
+  background-color: #000000;
+}

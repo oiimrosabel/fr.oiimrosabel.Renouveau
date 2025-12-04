@@ -1,0 +1,54 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $SettingsComponent: Adw.PreferencesGroup {
+  title: _("Settings");
+
+  Adw.SwitchRow {
+    title: _("Reboot automatically after the updates finishes");
+    subtitle: _("You can always reboot manually if this option is unchecked.");
+    active: bind template.canAutoReboot bidirectional;
+
+    [prefix]
+    Image {
+      name: "reboot";
+      icon-name: "system-reboot-symbolic";
+    }
+  }
+
+  Adw.SwitchRow {
+    title: _("Keep the update logs");
+    subtitle: _("The logs will be stored in text format.");
+    active: bind template.canKeepLogs bidirectional;
+
+    [prefix]
+    Image {
+      name: "log";
+      icon-name: "gnome-logs-symbolic";
+    }
+  }
+
+  Adw.SwitchRow {
+    title: _("Keep the system awake");
+    subtitle: _("Prevents the system to go into sleep mode during the update.");
+    active: bind template.canKeepAwake bidirectional;
+    
+    [prefix]
+    Image {
+      name: "energy";
+      icon-name: "gnome-power-manager-symbolic";
+    }
+  }
+  
+  Adw.SwitchRow {
+    title: _("Ignore errors");
+    subtitle: _("Continue the update process even when a command fails.");
+    active: bind template.ignoreErrors bidirectional;
+    
+    [prefix]
+    Image {
+      name: "warning";
+      icon-name: "warning-outline-symbolic";
+    }
+  }
+}

@@ -1,0 +1,28 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $UpdateExpanderRow: Adw.ExpanderRow {
+  sensitive: bind template.isScheduled;
+  visible: bind template.isVisible;
+  expanded: bind template.isOngoing;
+  enable-expansion: bind template.isOngoing;
+
+  [suffix]
+  Adw.Spinner {
+      visible: bind template.isOngoing;
+  }
+
+  [suffix]
+  Image {
+    name: "success";
+    icon-name: "check-plain-symbolic";
+    visible: bind template.isSuccess;
+  }
+
+  [suffix]
+  Image {
+    name: "error";
+    icon-name: "warning-outline-symbolic";
+    visible: bind template.isError;
+  }
+}

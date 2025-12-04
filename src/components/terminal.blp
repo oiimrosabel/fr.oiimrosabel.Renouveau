@@ -1,0 +1,20 @@
+using Gtk 4.0;
+
+template $Terminal: ScrolledWindow {
+  height-request: 300;
+  
+  TextView textView {
+    styles [
+      "terminal-output",
+    ]
+    
+    monospace: true;
+    bottom-margin: 12;
+    left-margin: 12;
+    right-margin: 12;
+    top-margin: 12;
+    editable: false;
+    cursor-visible: false;
+    wrap-mode: char;
+  }
+}

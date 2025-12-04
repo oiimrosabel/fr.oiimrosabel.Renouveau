@@ -1,0 +1,49 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $FinishPage: Adw.NavigationPage {
+  title: _("Finish");
+  tag: "finish";
+  can-pop: false;
+
+  child: Adw.ToolbarView {
+    [bottom]
+    ActionBar {
+      revealed: true;
+      valign: center;
+      margin-top: 8;
+      margin-bottom: 8;
+
+      [center]
+      Box {
+        spacing: 16;
+
+        Button {
+          styles [
+            "pill",
+            "with-bg",
+          ]
+
+          Adw.ButtonContent {
+            label: _("See logs");
+            icon-name: "gnome-logs-symbolic";
+          }
+        }
+
+        Button {
+          styles [
+            "pill",
+            "suggested-action",
+          ]
+
+          Adw.ButtonContent {
+            label: _("Reboot");
+            icon-name: "system-reboot-symbolic";
+          }
+        }
+      }
+    }
+
+    content: Box {};
+  };
+}

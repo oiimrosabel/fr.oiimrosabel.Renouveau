@@ -1,0 +1,98 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $StartPage: Adw.NavigationPage {
+  title: _("Configure");
+  tag: "main";
+  can-pop: false;
+  realize => $initSources();
+
+  child: Adw.ToolbarView {
+    [bottom]
+    ActionBar {
+      revealed: true;
+      valign: center;
+      margin-top: 8;
+      margin-bottom: 8;
+
+      [center]
+      Box {
+        spacing: 16;
+
+        Button {
+          styles [
+            "pill",
+            "suggested-action",
+          ]
+
+          Adw.ButtonContent {
+            label: _("Update");
+            icon-name: "software-update-available-symbolic";
+          }
+
+          clicked => $onUpdateClicked();
+        }
+      }
+    }
+
+    content: Adw.ToastOverlay toaster {
+      ScrolledWindow {
+        Box {
+          vexpand: true;
+          valign: center;
+          orientation: vertical;
+          margin-start: 64;
+          margin-end: 64;
+          margin-top: 32;
+          margin-bottom: 24;
+          spacing: 32;
+
+          Box {
+            orientation: vertical;
+            spacing: 4;
+
+            Image {
+              name: "main-icon";
+              icon-name: "main-icon";
+              pixel-size: 300;
+            }
+
+            Label {
+              label: _("Update your system all at once");
+
+              styles [
+                "title-1",
+              ]
+            }
+
+            Label {
+              label: _("Customize what you want to update.");
+            }
+          }
+
+          Adw.Clamp {
+            maximum-size: 600;
+
+            child: Box {
+              orientation: vertical;
+              spacing: 32;
+
+              Adw.PreferencesGroup {
+                title: _("Sources");
+                description: _("Select the package sources you want to update.");
+
+                $FlatpakComponent flatpakComp {}
+
+                $SnapComponent snapComp {}
+
+                $SystemComponent systemComp {}
+              }
+
+              $SettingsComponent settingsComp {}
+            };
+          }
+        }
+      }
+    };
+  };
+}

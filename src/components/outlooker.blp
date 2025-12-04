@@ -1,0 +1,37 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $OutlookerDialog: Adw.Dialog {
+  can-close: false;
+  follows-content-size: true;
+
+  child: Box {
+    margin-start: 32;
+    margin-end: 32;
+    margin-top: 32;
+    margin-bottom: 32;
+    orientation: vertical;
+    spacing: 16;
+
+    Adw.Spinner {
+      height-request: 64;
+    }
+
+    Box {
+      orientation: vertical;
+      spacing: 4;
+
+      Label {
+        label: _("We're analyzing your system");
+
+        styles [
+          "title-1",
+        ]
+      }
+
+      Label {
+        label: _("Please wait...");
+      }
+    }
+  };
+}

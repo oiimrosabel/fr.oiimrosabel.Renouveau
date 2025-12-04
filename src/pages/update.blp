@@ -1,0 +1,216 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $UpdatePage: Adw.NavigationPage {
+  tag: "update";
+  title: _("Updating...");
+  can-pop: false;
+
+  child: Adw.ToolbarView {
+    [bottom]
+    ActionBar {
+      revealed: true;
+      valign: end;
+      margin-top: 8;
+      margin-bottom: 8;
+
+      [center]
+      Box {
+        spacing: 16;
+
+        Button {
+          styles [
+            "pill",
+            "with-bg",
+          ]
+
+          Adw.ButtonContent {
+            label: _("Terminal");
+            icon-name: "org.gnome.Terminal-symbolic";
+          }
+
+          clicked => $onTerminalButtonClicked();
+        }
+
+        Button {
+          styles [
+            "pill",
+            "destructive-action",
+          ]
+
+          Adw.ButtonContent {
+            label: _("Cancel");
+            icon-name: "process-stop-symbolic";
+          }
+        }
+      }
+    }
+
+    content: Adw.BottomSheet {
+      modal: true;
+      can-close: true;
+      full-width: false;
+      open: bind template.showTerminal bidirectional;
+
+      sheet: Adw.StatusPage {
+        width-request: 700;
+        title: _("Terminal output");
+
+        child: Frame {
+          margin-bottom: 24;
+          margin-start: 16;
+          margin-end: 16;
+
+          $Terminal terminal {}
+        };
+      };
+
+      content: ScrolledWindow {
+        Box {
+          vexpand: true;
+          valign: center;
+          orientation: vertical;
+          margin-start: 64;
+          margin-end: 64;
+          margin-top: 32;
+          margin-bottom: 64;
+          spacing: 32;
+
+          Box {
+            orientation: vertical;
+            spacing: 4;
+
+            Image {
+              name: "main-icon";
+              icon-name: "update-icon";
+              pixel-size: 300;
+            }
+
+            Label {
+              label: _("Updating your system...");
+
+              styles [
+                "title-1",
+              ]
+            }
+
+            Label {
+              label: _("This might take a while. Have a coffee in the meantime.");
+            }
+          }
+
+          Adw.Clamp {
+            maximum-size: 600;
+
+            child: Box {
+              orientation: vertical;
+              spacing: 32;
+
+              Adw.PreferencesGroup {
+                $UpdateExpanderRow flatpakRow {
+                  title: _("Flatpak");
+
+                  [prefix]
+                  Image {
+                    name: "flatpak";
+                    icon-name: "flatpak-symbolic";
+                  }
+
+                  $UpdateRow {
+                    title: _("Update Flatpak packages");
+
+                    [prefix]
+                    Image {
+                      name: "update";
+                      icon-name: "software-updates-symbolic";
+                    }
+                  }
+
+                  $UpdateRow {
+                    title: _("Remove unused packages");
+
+                    [prefix]
+                    Image {
+                      name: "delete";
+                      icon-name: "user-trash-symbolic";
+                    }
+                  }
+
+                  $UpdateRow {
+                    title: _("Remove orphan data");
+
+                    [prefix]
+                    Image {
+                      name: "delete";
+                      icon-name: "user-trash-symbolic";
+                    }
+                  }
+                }
+
+                $UpdateExpanderRow {
+                  title: _("Snap");
+
+                  [prefix]
+                  Image {
+                    name: "snap";
+                    icon-name: "snap-symbolic";
+                  }
+
+                  $UpdateRow {
+                    title: _("Force update Snap packages");
+
+                    [prefix]
+                    Image {
+                      name: "update";
+                      icon-name: "software-updates-symbolic";
+                    }
+                  }
+                }
+
+                $UpdateExpanderRow {
+                  title: _("System");
+
+                  [prefix]
+                  Image {
+                    name: "package";
+                    icon-name: "package-x-generic-symbolic";
+                  }
+
+                  $UpdateRow {
+                    title: _("Refresh the package list");
+
+                    [prefix]
+                    Image {
+                      name: "refresh";
+                      icon-name: "view-refresh-symbolic";
+                    }
+                  }
+
+                  $UpdateRow {
+                    title: _("Update system packages");
+
+                    [prefix]
+                    Image {
+                      name: "update";
+                      icon-name: "software-updates-symbolic";
+                    }
+                  }
+
+                  $UpdateRow {
+                    title: _("Delete unused system packages");
+
+                    [prefix]
+                    Image {
+                      name: "delete";
+                      icon-name: "user-trash-symbolic";
+                    }
+                  }
+                }
+              }
+            };
+          }
+        }
+      };
+    };
+  };
+}

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Renouveau
+Exec=updater
+Icon=fr.oiimrosabel.Renouveau
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

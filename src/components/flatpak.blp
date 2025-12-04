@@ -1,0 +1,52 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $FlatpakComponent: Adw.ExpanderRow {
+  title: _("Flatpak");
+  subtitle: bind template.flatpakSubtitle;
+  sensitive: bind template.flatpakPresent;
+  show-enable-switch: true;
+  enable-expansion: bind template.flatpakEnabled bidirectional;
+
+  [prefix]
+  Image {
+    name: "flatpak";
+    icon-name: "flatpak-symbolic";
+  }
+
+  Adw.SwitchRow {
+    title: _("Update Flatpak packages");
+    active: bind template.updateFlatpak bidirectional;
+    subtitle: bind template.updateSubtitle;
+
+    [prefix]
+    Image {
+      name: "update";
+      icon-name: "software-updates-symbolic";
+    }
+  }
+
+  Adw.SwitchRow {
+    title: _("Remove unused packages");
+    active: bind template.cleanUnused bidirectional;
+      subtitle: bind template.unusedSubtitle;
+
+    [prefix]
+    Image {
+      name: "delete";
+      icon-name: "user-trash-symbolic";
+    }
+  }
+
+  Adw.SwitchRow {
+    title: _("Remove orphan data");
+    active: bind template.cleanOrphan bidirectional;
+    subtitle: bind template.orphanSubtitle;
+    
+    [prefix]
+    Image {
+      name: "delete";
+      icon-name: "user-trash-symbolic";
+    }
+  }
+}
